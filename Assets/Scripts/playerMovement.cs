@@ -11,7 +11,6 @@ public class playerMovement : MonoBehaviour
     Vector2 movement;
     
 
-    // Update is called once per frame
     void Update()
     {
         //Set X and Y axis
