@@ -522,6 +522,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6607975093200698324, guid: e8b95c8b09b14d6438069515aec3aeef, type: 3}
   m_PrefabInstance: {fileID: 6607975092568771430}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1072427192 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 6607975093200698334, guid: e8b95c8b09b14d6438069515aec3aeef, type: 3}
+  m_PrefabInstance: {fileID: 6607975092568771430}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1266927395
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,6 +699,8 @@ MonoBehaviour:
   barrel: {fileID: 1282782631}
   bulletSpeed: 500
   cooldown: 3
+  knockBack: 300
+  rb: {fileID: 1072427192}
 --- !u!1 &1926082747
 GameObject:
   m_ObjectHideFlags: 0
