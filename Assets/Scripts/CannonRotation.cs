@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class CannonRotation : MonoBehaviour
 {
-    public float rotationOffset = 270;
+    public float rotationSpeed;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        //Get mouse position
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0;
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+        //get direction from player to mouse
+        Vector2 direction = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
 
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
+        //retrieve current angle
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle + rotationOffset));
+        //quaternion stuff
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-        Vector3 targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        targetPos.z = 0;
+        //rotate smoothly from current rotation to mouse with a rotation speed
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.fixedDeltaTime * rotationSpeed);
     }
 }
