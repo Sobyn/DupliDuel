@@ -16,20 +16,25 @@ public class EnemyCannonRotation : MonoBehaviour
     public float rotationSpeed;
 
     //values for internal use
-    private Quaternion lookRotation;
+    //private Quaternion lookRotation;
     private Vector3 direction;
-
     
     void FixedUpdate()
     {
         //find the vector pointing from our position to the target
-        direction = (playerTarget.position - transform.position).normalized;
-        
+        direction = (transform.position - playerTarget.position).normalized;
+
         //create the rotation we need to be in to look at the target
-        lookRotation = Quaternion.LookRotation(direction);
+        //OLD: lookRotation = Quaternion.LookRotation(direction);
+
+        //retrieve current angle
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        //quaternion stuff
+        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
         //rotate us over time according to speed until we are in the required rotation
-        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.fixedDeltaTime * rotationSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.fixedDeltaTime * rotationSpeed);
 
         //needed for all of this to work in 2D, somehow
         transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
