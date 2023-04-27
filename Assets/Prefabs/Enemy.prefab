@@ -194,6 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 412067836984901197}
   - component: {fileID: 412067836984901196}
+  - component: {fileID: 920820367}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -209,7 +210,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412067836984901198}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: 0}
+  m_LocalPosition: {x: -1.3, y: 0, z: 0}
   m_LocalScale: {x: 1.7125, y: 0.3125, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -269,6 +270,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &920820367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412067836984901198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35528b783202dd747a1e788ea90357ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6598679436354074296, guid: 8c39515110512b34bb2c561d7c3edcc0, type: 3}
+  barrel: {fileID: 412067837998154512}
+  bulletSpeed: 300
+  cooldown: 5
+  knockBack: 300
+  rb: {fileID: 0}
 --- !u!1 &412067837998154513
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +312,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412067837998154513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0, z: 0}
+  m_LocalPosition: {x: -0.498, y: -0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -327,7 +346,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 412067838071161969}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.45, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -401,7 +420,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb6b3ce7a366534b9487f5e7f52e917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 2
+  distStop: 5
   player: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!50 &412067838071161935
 Rigidbody2D:
   serializedVersion: 4
