@@ -32,6 +32,7 @@ public class EnemyFireWithDelay : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
+        nextFire = cooldown;
     }
 
 
