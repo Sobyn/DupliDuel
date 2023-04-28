@@ -10,7 +10,8 @@ public class BadBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Player")
+        //if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             //Destroy(collision.gameObject);
             Instantiate(collision.gameObject);
