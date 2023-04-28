@@ -14,17 +14,24 @@ public class EnemyFireWithDelay : MonoBehaviour
 
     [Tooltip("Bullet speed (Default: 500)")]
     [Range(0f, 1000f)]
-    [SerializeField] private float bulletSpeed = 500f;
+    [SerializeField]
+    private float bulletSpeed = 500f;
 
     [Tooltip("Cooldown in seconds")]
     [Range(0f, 10f)]
-    [SerializeField] private float cooldown = 1f;
+    [SerializeField]
+    private float cooldown = 1f;
 
     private float nextFire = 0f;
 
     [Tooltip("Knockback force (Default: 300)")]
     [Range(0f, 1000f)]
-    [SerializeField] private float knockBack = 300f;
+    [SerializeField]
+    private float knockBack = 300f;
+    
+    [Tooltip("The particle system to use")]
+    [SerializeField]
+    private ParticleSystem ps;
 
     [SerializeField]
     private Rigidbody2D rb;
@@ -50,7 +57,9 @@ public class EnemyFireWithDelay : MonoBehaviour
             spawnedBullet.AddForce(-barrel.right * bulletSpeed);
 
             //add force to the player in the opposite direction
-            rb.AddForce(-barrel.right * knockBack);
+            //rb.AddForce(-barrel.right * knockBack);
+
+            ps.Play();
         }
     }
 }

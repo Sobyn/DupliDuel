@@ -33,6 +33,10 @@ public class FireWithDelay : MonoBehaviour
     [SerializeField]
     private Rigidbody2D rb;
 
+    [Tooltip("The particle system")]
+    [SerializeField]
+    private ParticleSystem ps;
+
     private void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
@@ -55,6 +59,8 @@ public class FireWithDelay : MonoBehaviour
             
             //add force to the player in the opposite direction
             rb.AddForce(-barrel.right * knockBack);
+
+            ps.Play();
         }
     }
 }
